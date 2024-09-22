@@ -1,0 +1,34 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Este é o título um",
+      "body": "Corpo de texto 1"
+    },
+    {
+      "id": "2",
+      "title": "Este é o título dois",
+      "body": "Corpo de texto 2"
+    },
+    {
+      "id": 3,
+      "title": "Post número 3",
+      "body": "Este é o terceiro post"
+    },
+    {
+      "id": "3ed9a68f-1197-4cbf-b9d6-431612ceea75",
+      "title": "Teste de adição de post",
+      "body": "corpo do teste"
+    },
+    {
+      "id": "7e2d8a04-b919-4ef5-a9f0-be7fa99737f6",
+      "title": "novo post",
+      "body": "asdf"
+    },
+    {
+      "id": "ddaf63a2-5327-4a4f-baba-bcf9dec1beb7",
+      "title": "post automático",
+      "body": "asdfj sdfj sdfsdfs"
+    }
+  ]
+}
