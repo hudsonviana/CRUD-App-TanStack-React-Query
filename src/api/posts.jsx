@@ -32,3 +32,10 @@ export const updatePost = async (updatedPost) => {
   )
   return response.json()
 }
+
+export const deletePost = async (id) => {
+  const response = await fetch(`http://localhost:3000/posts/${id}`, {
+    method: 'DELETE',
+  })
+  return response.json()
+}

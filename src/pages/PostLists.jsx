@@ -1,9 +1,10 @@
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import AddPost from '../components/AddPost'
-import { fetchPosts } from '../api/posts'
+import { deletePost, fetchPosts } from '../api/posts'
 import { useNavigate } from 'react-router-dom'
 
 const PostLists = () => {
+  const queryClient = useQueryClient()
   const navigate = useNavigate()
   const {
     isLoading,
@@ -14,6 +15,15 @@ const PostLists = () => {
     queryKey: ['posts'],
     queryFn: fetchPosts,
   })
+
+  const deletePostMutation = useMutation({
+    mutationFn: deletePost,
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['posts'] }),
+  })
+
+  const handleDelete = (id) => {
+    deletePostMutation.mutate(id)
+  }
 
   if (isError) return `Ocorreu um erro: ${error}`
   if (isLoading) return 'Carregando...'
@@ -32,7 +42,7 @@ const PostLists = () => {
           <button onClick={() => navigate(`/post/${post.id}/edit`)}>
             Editar
           </button>{' '}
-          <button>Deletar</button>
+          <button onClick={() => handleDelete(post.id)}>Deletar</button>
         </div>
       ))}
     </div>
